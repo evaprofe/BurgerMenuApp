@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_LEFT" prefHeight="502.0" prefWidth="373.0" spacing="20" 
+      xmlns="http://javafx.com/javafx/23.0.1" 
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="burgermenuapp.BurgerOrderController" 
+      stylesheets="@style.css">
+   <padding>
+      <Insets bottom="20" left="20" right="20" top="20" />
+   </padding>
+
+   <!-- Selección de productos -->
+   <GridPane hgap="10" vgap="10" styleClass="grid-pane">
+      <Label text="Tipo de hamburguesa:" />
+      <ComboBox fx:id="cmbHamburguesa" />
+      <Label text="Tipo de pan:" />
+      <ComboBox fx:id="cmbPan" />
+      <Label text="Tipo de patatas:" />
+      <ComboBox fx:id="cmbPatatas" />
+      <Label text="Bebida:" />
+      <ComboBox fx:id="cmbBebida" />
+      <columnConstraints>
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
+   </GridPane>
+
+   <!-- Extras -->
+   <VBox spacing="10">
+      <Label fx:id="lblPrecioExtras" style="-fx-font-weight: bold;" text="Extras:" />
+      <CheckBox fx:id="chkDoble" onAction="#actualizarPrecio" text="Hamburguesa doble (+2€)" />
+      <CheckBox fx:id="chkQueso" onAction="#actualizarPrecio" text="Extra de queso (+0,50€)" />
+      <CheckBox fx:id="chkExtraPatatas" onAction="#actualizarPrecio" text="Extra de patatas (+1€)" />
+   </VBox>
+
+   <!-- Salsas -->
+   <VBox spacing="10">
+      <Label style="-fx-font-weight: bold;" text="Salsas (+0,50€ cada una):" />
+      <CheckBox fx:id="chkKetchup" onAction="#actualizarPrecio" text="Ketchup" />
+      <CheckBox fx:id="chkBarbacoa" onAction="#actualizarPrecio" text="Barbacoa" />
+      <CheckBox fx:id="chkMostaza" onAction="#actualizarPrecio" text="Mostaza" />
+      <CheckBox fx:id="chkThai" onAction="#actualizarPrecio" text="Thai" />
+   </VBox>
+
+   <!-- Entrega -->
+   <VBox spacing="10">
+      <Label style="-fx-font-weight: bold;" text="Tipo de entrega:" />
+      <RadioButton fx:id="radDomicilio" onAction="#actualizarPrecio" text="Reparto a domicilio">
+         <toggleGroup>
+            <ToggleGroup fx:id="toggleGroupEntrega" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="radLocal" onAction="#actualizarPrecio" text="Recogida en local (-20%)" toggleGroup="$toggleGroupEntrega" />
+   </VBox>
+
+   <!-- Resumen -->
+   <GridPane hgap="10" vgap="5">
+      <Label style="-fx-font-weight: bold;" text="Resumen del pedido:" GridPane.columnSpan="2" />
+
+      <Label text="Precio base:" GridPane.rowIndex="1" />
+      <Label fx:id="lblPrecioBase" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+      <Label text="Extras:" GridPane.rowIndex="2" />
+      <Label fx:id="lblPrecioExtras" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+      <Label text="Subtotal:" GridPane.rowIndex="3" />
+      <Label fx:id="lblPrecioSubtotal" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+      <Label text="IVA:" GridPane.rowIndex="4" />
+      <Label fx:id="lblPrecioIVA" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+      <Label text="Total:" GridPane.rowIndex="5" />
+      <Label fx:id="lblPrecioTotal" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+   </GridPane>
+</VBox>
