@@ -9,11 +9,14 @@ import javafx.scene.control.Alert;
 
 
 public class BurgerOrderController {
-    @FXML private ComboBox<String> cmbHamburguesa, cmbPan, cmbPatatas, cmbBebida;
-    @FXML private CheckBox chkDoble, chkQueso, chkExtraPatatas, chkKetchup, chkBarbacoa, chkMostaza, chkThai;
+    @FXML 
+    private ComboBox<String> cmbHamburguesa, cmbPan, cmbPatatas, cmbBebida;
+    @FXML
+    private CheckBox chkDoble, chkQueso, chkExtraPatatas, chkKetchup, chkBarbacoa, chkMostaza, chkThai;
     @FXML
     private RadioButton radLocal;
-    @FXML private Label lblPrecioBase, lblPrecioExtras, lblPrecioSubtotal, lblPrecioIVA, lblPrecioTotal;
+    @FXML 
+    private Label lblPrecioBase, lblPrecioExtras, lblPrecioSubtotal, lblPrecioIVA, lblPrecioTotal;
 
     private final  BurgerOrder burgerOrder;
 
@@ -58,11 +61,11 @@ public class BurgerOrderController {
         double total = burgerOrder.calcularTotal(subtotal, iva);
 
         // Actualizar etiquetas
-        lblPrecioBase.setText(String.format("%.2f?", burgerOrder.getPrecioBase()));
-        lblPrecioExtras.setText(String.format("%.2f?", extras));
-        lblPrecioSubtotal.setText(String.format("%.2f?", subtotal));
-        lblPrecioIVA.setText(String.format("%.2f?", iva));
-        lblPrecioTotal.setText(String.format("%.2f?", total));
+        lblPrecioBase.setText(String.format("%.2f", burgerOrder.getPrecioBase()));
+        lblPrecioExtras.setText(String.format("%.2f", extras));
+        lblPrecioSubtotal.setText(String.format("%.2f", subtotal));
+        lblPrecioIVA.setText(String.format("%.2f", iva));
+        lblPrecioTotal.setText(String.format("%.2f", total));
     }
 
     @FXML
@@ -72,4 +75,6 @@ public class BurgerOrderController {
         alert.setContentText("Tu pedido ha sido registrado correctamente.\nPrecio total: " + lblPrecioTotal.getText());
         alert.showAndWait();
     }
+    
+    
 }

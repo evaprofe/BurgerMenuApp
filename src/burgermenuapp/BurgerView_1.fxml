@@ -11,35 +11,40 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_LEFT" prefHeight="502.0" prefWidth="373.0" spacing="20" 
-      xmlns="http://javafx.com/javafx/23.0.1" 
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="burgermenuapp.BurgerOrderController" 
-      stylesheets="@style.css">
+<VBox alignment="TOP_LEFT" prefHeight="599.0" prefWidth="696.0" spacing="20" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="burgermenuapp.BurgerOrderController">
    <padding>
       <Insets bottom="20" left="20" right="20" top="20" />
    </padding>
 
    <!-- Selección de productos -->
    <GridPane hgap="10" vgap="10" styleClass="grid-pane">
-      <Label text="Tipo de hamburguesa:" />
-      <ComboBox fx:id="cmbHamburguesa" />
-      <Label text="Tipo de pan:" />
-      <ComboBox fx:id="cmbPan" />
-      <Label text="Tipo de patatas:" />
-      <ComboBox fx:id="cmbPatatas" />
-      <Label text="Bebida:" />
-      <ComboBox fx:id="cmbBebida" />
+      <Label text="Tipo de hamburguesa:" GridPane.columnIndex="0" />
+      <ComboBox fx:id="cmbHamburguesa" GridPane.columnIndex="1" />
+      
+      <Label text="Tipo de pan:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+      <ComboBox fx:id="cmbPan" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      
+      <Label text="Tipo de patatas:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+      <ComboBox fx:id="cmbPatatas" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      
+      <Label text="Bebida:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+      <ComboBox fx:id="cmbBebida" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      
       <columnConstraints>
-         <ColumnConstraints />
+         <ColumnConstraints/>
+         <ColumnConstraints/>
       </columnConstraints>
       <rowConstraints>
-         <RowConstraints />
+         <RowConstraints/>
+         <RowConstraints/>
+         <RowConstraints/>
+         <RowConstraints/>
       </rowConstraints>
    </GridPane>
 
    <!-- Extras -->
    <VBox spacing="10">
-      <Label fx:id="lblPrecioExtras" style="-fx-font-weight: bold;" text="Extras:" />
+      <Label style="-fx-font-weight: bold;" text="Extras:" />
       <CheckBox fx:id="chkDoble" onAction="#actualizarPrecio" text="Hamburguesa doble (+2€)" />
       <CheckBox fx:id="chkQueso" onAction="#actualizarPrecio" text="Extra de queso (+0,50€)" />
       <CheckBox fx:id="chkExtraPatatas" onAction="#actualizarPrecio" text="Extra de patatas (+1€)" />
@@ -57,44 +62,46 @@
    <!-- Entrega -->
    <VBox spacing="10">
       <Label style="-fx-font-weight: bold;" text="Tipo de entrega:" />
-      <RadioButton fx:id="radDomicilio" onAction="#actualizarPrecio" text="Reparto a domicilio">
-         <toggleGroup>
-            <ToggleGroup fx:id="toggleGroupEntrega" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="radLocal" onAction="#actualizarPrecio" text="Recogida en local (-20%)" toggleGroup="$toggleGroupEntrega" />
+      <RadioButton fx:id="radDomicilio" toggleGroup="$toggleGroupEntrega" onAction="#actualizarPrecio" text="Reparto a domicilio" />
+      <RadioButton fx:id="radLocal" toggleGroup="$toggleGroupEntrega" onAction="#actualizarPrecio" text="Recogida en local (-20%)" />
    </VBox>
 
    <!-- Resumen -->
    <GridPane hgap="10" vgap="5">
       <Label style="-fx-font-weight: bold;" text="Resumen del pedido:" GridPane.columnSpan="2" />
 
+      <!-- Precio base -->
       <Label text="Precio base:" GridPane.rowIndex="1" />
       <Label fx:id="lblPrecioBase" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
+      <!-- Extras -->
       <Label text="Extras:" GridPane.rowIndex="2" />
       <Label fx:id="lblPrecioExtras" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
+      <!-- Subtotal -->
       <Label text="Subtotal:" GridPane.rowIndex="3" />
       <Label fx:id="lblPrecioSubtotal" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
+      <!-- IVA -->
       <Label text="IVA:" GridPane.rowIndex="4" />
       <Label fx:id="lblPrecioIVA" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
+      <!-- Total -->
       <Label text="Total:" GridPane.rowIndex="5" />
       <Label fx:id="lblPrecioTotal" GridPane.columnIndex="1" GridPane.rowIndex="5" />
 
       <columnConstraints>
-         <ColumnConstraints />
-         <ColumnConstraints />
+         <ColumnConstraints/>
+         <ColumnConstraints/>
       </columnConstraints>
+      
       <rowConstraints>
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
-         <RowConstraints />
+         <RowConstraints/>
+         <RowConstraints/>
+         <RowConstraints/>
+         <RowConstraints/>
+         <RowConstraints/>
       </rowConstraints>
    </GridPane>
 </VBox>
+

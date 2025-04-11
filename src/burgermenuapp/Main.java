@@ -11,7 +11,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BurgerView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BurgerView_1.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             primaryStage.setTitle("Burger Menu App");
             primaryStage.setScene(scene);
